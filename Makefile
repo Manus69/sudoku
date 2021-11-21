@@ -10,9 +10,8 @@ source_folder = src/
 obj_folder = obj/
 # lib_folder = ~/projects/why/
 lib_folder = ./lib/
-include_folder = $(lib_folder)src/
 
-include_flag = -I $(lib_folder) -I $(include_folder) -I .
+include_flag = -I $(lib_folder) -I .
 linker_flag = $(lib_folder)$(lib)
 headers = $(wildcard $(source_folder)*.h)
 source = $(wildcard $(source_folder)*.c)
@@ -20,6 +19,7 @@ objects = $(subst $(source_folder),$(obj_folder),$(source:.c=.o))
 
 .PHONY: directory
 
+all: flags = $(release_flags)
 all: directory $(name)
 
 directory:
